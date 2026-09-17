@@ -1,0 +1,16 @@
+name: CI
+
+# main 브랜치 푸시 시에만 워크플로우 실행
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello:
+    # 우분투 최신 버전에서 작업 실행
+    runs-on: ubuntu-latest
+    steps:
+      # 콘솔에 hello ci! 문자열 출력
+      - name: Print hello message
+        run: echo "hello ci!"
