@@ -1,5 +1,6 @@
 # main 브랜치 푸시 시 동작하는 CI 워크플로우
 # Continuous Integration : 지속적 통합
+# 워크플로우 동작 확인용 임시 트리거 주석
 name: CI
 
 # 어떤 조건에서 트리거 될 것인가?
