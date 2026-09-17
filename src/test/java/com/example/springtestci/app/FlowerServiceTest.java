@@ -78,6 +78,27 @@ class FlowerServiceTest {
     }
 
     @Nested
+    @DisplayName("count 메서드는 (CI 실패 검증용)")
+    class Describe_count_ci_check {
+
+        @Test
+        @DisplayName("의도적으로 실패하여 CI 검증을 확인한다")
+        void it_intentionally_fails() {
+            // given
+            // 저장소가 반환할 개수 스텁 설정
+            given(flowerRepository.count()).willReturn(5L);
+
+            // when
+            // 꽃 개수 조회 요청
+            long result = flowerService.count();
+
+            // then
+            // CI 실패 트리거를 위한 의도적 오답 검증
+            assertThat(result).isEqualTo(999L);
+        }
+    }
+
+    @Nested
     @DisplayName("findAll 메서드는")
     class Describe_findAll {
 
